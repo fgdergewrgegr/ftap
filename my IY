@@ -10196,18 +10196,18 @@ addcmd('olddex', {'odex'}, function(args, speaker)
 					return {}
 				end
 			}, {}
-			FenvMt.__index = function(a,b)
-				return RealFenv[b] == nil and getgenv()[b] or RealFenv[b]
-			end
-			FenvMt.__newindex = function(a, b, c)
-				if RealFenv[b] == nil then 
-					getgenv()[b] = c 
-				else 
-					RealFenv[b] = c 
-				end
-			end
-			setmetatable(Fenv, FenvMt)
-			pcall(setfenv, Func, Fenv)
+			-- FenvMt.__index = function(a,b)
+			-- 	return RealFenv[b] == nil and getgenv()[b] or RealFenv[b]
+			-- end
+			-- FenvMt.__newindex = function(a, b, c)
+			-- 	if RealFenv[b] == nil then 
+			-- 		getgenv()[b] = c 
+			-- 	else 
+			-- 		RealFenv[b] = c 
+			-- 	end
+			-- end
+			-- setmetatable(Fenv, FenvMt)
+			-- pcall(setfenv, Func, Fenv)
 			return Func
 		end
 
